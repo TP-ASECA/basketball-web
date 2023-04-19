@@ -1,0 +1,18 @@
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: black;
+    padding: 10px 20px;
+}
+
+.navbar-logo {
+    display: block;
+    height: 50px;
+}
+
+.navbar-logo-image {
+    position: relative;
+    left: 0;
+    height: 100%;
+}
