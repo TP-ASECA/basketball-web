@@ -1,6 +1,13 @@
 .add-match-button{
     width: 200px;
     height: 50px;
-    color: #282c34;
     margin: 20px;
+    background-color: #282c34;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
 }
