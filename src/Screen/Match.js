@@ -3,7 +3,7 @@ import './UIcss/LastMatches.css'
 import AddMatchButton from "../Components/AddMatchButton";
 import SaveMatchButton from "../Components/SaveMatchButton";
 
-const Match = () => {
+const Match = (props) => {  //aca le paso la prop de si esta viendo los datos del partido o si estas creando uno y dependiendo de eso depende como se ve la misma pagina
     return (
         <div className="container">
             <div className="title-container">
