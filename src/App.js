@@ -8,14 +8,20 @@ function App() {
   return (
     <>
         <NavBar/>
-        <div className="App">
-            <BrowserRouter>
-                <Routes>
-                    <Route exact path="/last-matches" element={LastMatches} />
-                    <Route path="/match" element={Match}/>
-                </Routes>
-            </BrowserRouter>
-        </div>
+
+        <LastMatches></LastMatches>
+
+        {/*<Match></Match>*/}
+
+        {/*<div className="App">*/}
+        {/*    <BrowserRouter>*/}
+        {/*        <Routes>*/}
+        {/*            <Route exact path="/last-matches" element={LastMatches} />*/}
+        {/*            <Route path="/match" element={Match}/>*/}
+        {/*        </Routes>*/}
+        {/*    </BrowserRouter>*/}
+        {/*</div>*/}
+
     </>
   );
 }

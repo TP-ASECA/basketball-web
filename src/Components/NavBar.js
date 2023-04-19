@@ -1,6 +1,6 @@
 import * as React from "react";
 import NbaLogo from "../Utilities/NbaLogo.png"
-import "./UICss/NavBar.css"
+import "./UIcss/NavBar.css"
 
 const Navbar = () => {
     return (

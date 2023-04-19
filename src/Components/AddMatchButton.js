@@ -1,8 +1,9 @@
 import * as React from "react";
+import './UIcss/AddMatchButton.css'
 
 const AddMatchButton = () => {
     return (
-        <div></div>
+        <button className='add-match-button'>+ Load Match</button>
     );
 };
 
