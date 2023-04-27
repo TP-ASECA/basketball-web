@@ -3,9 +3,9 @@ import './UIcss/AddMatchButton.css'
 
 const AddMatchButton = () => {
     return (
-        <a href="/match">
+        <div>
             <button className='add-match-button'>+ Load Match</button>
-        </a>
+        </div>
     );
 };
 

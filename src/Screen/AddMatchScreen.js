@@ -1,19 +1,19 @@
 import * as React from "react";
-import AddMatchButton from "../Components/AddMatchButton";
-import './UIcss/LastMatches.css'
+import './UIcss/Results.css'
+import SaveMatchButton from "../Components/SaveMatchButton";
 
-const LastMatches = () => {
+const AddMatchScreen = () => {
     return (
         <div className="container">
             <div className="title-container">
-                <h1 className="title">Last Matches</h1>
+                <h1 className="title">Add Match</h1>
             </div>
             <div></div>
             <div className="button-container">
-                <AddMatchButton/>
+                <SaveMatchButton/>
             </div>
         </div>
     );
 };
 
-export default LastMatches;
+export default AddMatchScreen;

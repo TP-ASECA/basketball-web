@@ -3,9 +3,9 @@ import { render } from "@testing-library/react";
 import AddMatchButton from "../../Components/AddMatchButton";
 
 describe("AddMatchButton", () => {
-  test("renders a button with the text '+ Load Match'", () => {
+  test("renders a button with the text '+ Load AddMatchScreen'", () => {
     const { getByText } = render(<AddMatchButton />);
-    const addButton = getByText("+ Load Match");
+    const addButton = getByText("+ Load AddMatchScreen");
     expect(addButton).toBeInTheDocument();
     expect(addButton.tagName).toBe("BUTTON");
   });

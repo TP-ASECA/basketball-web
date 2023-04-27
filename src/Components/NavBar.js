@@ -5,7 +5,7 @@ import "./UIcss/NavBar.css"
 const Navbar = () => {
     return (
         <nav className="navbar">
-            <a href="/last-matches" className="navbar-logo">
+            <a href="/results" className="navbar-logo">
                 <img src={NbaLogo} alt="Logo" className="navbar-logo-image"/>
             </a>
         </nav>
