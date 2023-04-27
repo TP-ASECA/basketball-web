@@ -1,11 +1,13 @@
 import * as React from "react";
 import './UIcss/AddMatchButton.css'
+import {useNavigate} from "react-router-dom";
 
 const AddMatchButton = () => {
+
+    const navigate = useNavigate()
+
     return (
-        <div>
-            <button className='add-match-button'>+ Load Match</button>
-        </div>
+        <button className='add-match-button' onClick={()=>{navigate('/addMatch')}}>+ Load Match</button>
     );
 };
 

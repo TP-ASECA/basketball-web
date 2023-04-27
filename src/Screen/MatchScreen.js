@@ -1,10 +1,19 @@
 import * as React from "react";
-import './UIcss/Results.css'
+import './UIcss/Screen.css'
+import SaveMatchButton from "../Components/SaveMatchButton";
 
 const MatchScreen = () => {
     return (
-        <div >
-            
+        <div className="container">
+            <div className="header-container">
+
+            </div>
+            <div className="match-container">
+
+            </div>
+            <div className="players-container">
+
+            </div>
         </div>
     );
 };

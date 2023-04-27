@@ -1,11 +1,14 @@
 import * as React from "react";
 import AddMatchButton from "../Components/AddMatchButton";
-import './UIcss/Results.css'
+import './UIcss/Screen.css'
 import Match from "../Components/Match";
 import NbaLogo from "../Utilities/NbaLogo.png"
+import InfiniteScroll from "react-infinite-scroll-component";
 import {useState} from "react";
 
-const Results = () => {
+const ResultsScreen = () => {
+
+    const [matchData, setMatchData] = useState(null);
 
     const localClubLogo = NbaLogo
     const visitClubLogo = NbaLogo
@@ -22,24 +25,24 @@ const Results = () => {
                         Last Matches
                     </h1>
                 </div>
-                <div></div>
                 <div className="button-container">
                     <AddMatchButton/>
                 </div>
             </div>
             <div className="results-container">
-                <Match
-                    localClubLogo={localClubLogo}
-                    visitClubLogo={visitClubLogo}
-                    localClubName={localClubName}
-                    visitClubName={visitClubName}
-                    localTeamResult={localTeamPoints}
-                    visitTeamResult={visitTeamPoints}
-                />
-
+                <InfiniteScroll dataLength={6}>
+                    <Match
+                        localClubLogo={localClubLogo}
+                        visitClubLogo={visitClubLogo}
+                        localClubName={localClubName}
+                        visitClubName={visitClubName}
+                        localTeamResult={localTeamPoints}
+                        visitTeamResult={visitTeamPoints}
+                    />
+                </InfiniteScroll>
             </div>
         </div>
     );
 };
 
-export default Results;
+export default ResultsScreen;

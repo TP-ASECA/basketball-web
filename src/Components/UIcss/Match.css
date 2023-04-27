@@ -1,12 +1,12 @@
 .match-container{
     display: flex;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    height: 70%;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    height: 60%;
 }
 
 .local-team-container{
-    padding: 15px 0 15px 0;
+    padding: 5px 0 5px 0;
     width: 42.5%;;
     margin-right: 20px;
     margin-left: 5px;
@@ -17,7 +17,7 @@
 }
 
 .visit-team-container{
-    padding: 15px 0 15px 0;
+    padding: 5px 0 5px 0;
     width: 42.5%;
     margin-left: 20px;
 }

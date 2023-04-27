@@ -1,13 +1,17 @@
 import * as React from "react";
 import NbaLogo from "../Utilities/NbaLogo.png"
 import "./UIcss/NavBar.css"
+import {useNavigate} from "react-router-dom";
 
 const Navbar = () => {
+
+    const navigate = useNavigate()
+
     return (
         <nav className="navbar">
-            <a href="/results" className="navbar-logo">
-                <img src={NbaLogo} alt="Logo" className="navbar-logo-image"/>
-            </a>
+            <div className="navbar-logo">
+                <img src={NbaLogo} alt="Logo" className="navbar-logo-image" onClick={() => {navigate('/')}}/>
+            </div>
         </nav>
     );
 };

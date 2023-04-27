@@ -1,28 +1,21 @@
 import './App.css';
+import {Routes, Route} from "react-router-dom";
 import NavBar from "./Components/NavBar";
-import {BrowserRouter, Route, Routes} from 'react-router-dom';
-import Results from "./Screen/Results.js";
+import ResultsScreen from "./Screen/ResultsScreen.js";
 import AddMatchScreen from "./Screen/AddMatchScreen";
-import Match from "./Components/Match";
+import MatchScreen from "./Screen/MatchScreen";
 
 function App() {
   return (
     <>
         <NavBar/>
-
-        <Results></Results>
-
-        {/*<AddMatchScreen></AddMatchScreen>*/}
-
-        {/*<div className="App">*/}
-        {/*    <BrowserRouter>*/}
-        {/*        <Routes>*/}
-        {/*            <Route exact path="/results-matches" element={Results} />*/}
-        {/*            <Route path="/match" element={AddMatchScreen}/>*/}
-        {/*        </Routes>*/}
-        {/*    </BrowserRouter>*/}
-        {/*</div>*/}
-
+        <div className="App">
+            <Routes>
+                <Route path="/" element={<ResultsScreen/>}/>
+                <Route path="/addMatch" element={<AddMatchScreen/>}/>
+                <Route path="/match" element={<MatchScreen/>}/>
+            </Routes>
+        </div>
     </>
   );
 }
