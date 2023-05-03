@@ -22,9 +22,19 @@
     margin-left: 20px;
 }
 
-.team-container{
+.team-name-container{
     background-color: rgb(42, 45, 45, 1);
     display: flex;
+}
+
+.teams-container {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.team-container {
+    width: 400px;
 }
 
 .club-logo-container{
@@ -60,3 +70,4 @@
 .title{
     color: white;
 }
+
