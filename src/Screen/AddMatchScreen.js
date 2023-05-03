@@ -1,11 +1,8 @@
 import * as React from "react";
 import './UIcss/Screen.css'
 import SaveMatchButton from "../Components/SaveMatchButton";
-import AddMatchButton from "../Components/AddMatchButton";
-import Match from "../Components/Match";
 import PlayerCard from "../Components/PlayerCard"
 import Lebron from "../assets/lebron.png"
-import { Input } from "@mui/base";
 
 const AddMatchScreen = () => {
     return (
@@ -20,8 +17,8 @@ const AddMatchScreen = () => {
                     <SaveMatchButton/>
                 </div>
             </div>
-            <div className="match-container">
-
+            <div className="">
+                {/*aca va los dos clubes y el resultado */}
             </div>
             <div className="teams-container">
                 <div className="team-container">
@@ -37,21 +34,6 @@ const AddMatchScreen = () => {
                             photo={Lebron}
                         />
                         <input className="player-score-input" type={"number"}/>
-                        <PlayerCard 
-                            name={"Lebron James"}
-                            photo={Lebron}
-                        />
-                        <input className="player-score-input" type={"number"}/>
-                        <PlayerCard 
-                            name={"Lebron James"}
-                            photo={Lebron}
-                        />
-                        <input className="player-score-input" type={"number"}/>
-                        <PlayerCard 
-                            name={"Lebron James"}
-                            photo={Lebron}
-                        />
-                        <input className="player-score-input" type={"number"}/>
                     </div>
                 </div>
                 <div className="team-container">
@@ -63,21 +45,6 @@ const AddMatchScreen = () => {
                         <input className="player-score-input" type={"number"}/>
                         <PlayerCard 
                             isMvp
-                            name={"Lebron James"}
-                            photo={Lebron}
-                        />
-                        <input className="player-score-input" type={"number"}/>
-                        <PlayerCard 
-                            name={"Lebron James"}
-                            photo={Lebron}
-                        />
-                        <input className="player-score-input" type={"number"}/>
-                        <PlayerCard 
-                            name={"Lebron James"}
-                            photo={Lebron}
-                        />
-                        <input className="player-score-input" type={"number"}/>
-                        <PlayerCard 
                             name={"Lebron James"}
                             photo={Lebron}
                         />

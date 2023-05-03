@@ -1,7 +1,7 @@
 import * as React from "react";
 import AddMatchButton from "../Components/AddMatchButton";
 import './UIcss/Screen.css'
-import Match from "../Components/Match";
+import MatchCard from "../Components/MatchCard";
 import NbaLogo from "../Utilities/NbaLogo.png"
 import InfiniteScroll from "react-infinite-scroll-component";
 import {useState} from "react";
@@ -30,16 +30,79 @@ const ResultsScreen = () => {
                 </div>
             </div>
             <div className="results-container">
-                <InfiniteScroll dataLength={6}>
-                    <Match
-                        localClubLogo={localClubLogo}
-                        visitClubLogo={visitClubLogo}
-                        localClubName={localClubName}
-                        visitClubName={visitClubName}
-                        localTeamResult={localTeamPoints}
-                        visitTeamResult={visitTeamPoints}
-                    />
-                </InfiniteScroll>
+                <MatchCard
+                    localClubLogo={localClubLogo}
+                    visitClubLogo={visitClubLogo}
+                    localClubName={localClubName}
+                    visitClubName={visitClubName}
+                    localTeamPoints={localTeamPoints}
+                    visitTeamPoints={visitTeamPoints}
+                />
+                <MatchCard
+                    localClubLogo={localClubLogo}
+                    visitClubLogo={visitClubLogo}
+                    localClubName={localClubName}
+                    visitClubName={visitClubName}
+                    localTeamPoints={localTeamPoints}
+                    visitTeamPoints={visitTeamPoints}
+                />
+                <MatchCard
+                    localClubLogo={localClubLogo}
+                    visitClubLogo={visitClubLogo}
+                    localClubName={localClubName}
+                    visitClubName={visitClubName}
+                    localTeamPoints={localTeamPoints}
+                    visitTeamPoints={visitTeamPoints}
+                />
+                <MatchCard
+                    localClubLogo={localClubLogo}
+                    visitClubLogo={visitClubLogo}
+                    localClubName={localClubName}
+                    visitClubName={visitClubName}
+                    localTeamPoints={localTeamPoints}
+                    visitTeamPoints={visitTeamPoints}
+                />
+                <MatchCard
+                    localClubLogo={localClubLogo}
+                    visitClubLogo={visitClubLogo}
+                    localClubName={localClubName}
+                    visitClubName={visitClubName}
+                    localTeamPoints={localTeamPoints}
+                    visitTeamPoints={visitTeamPoints}
+                />
+                <MatchCard
+                    localClubLogo={localClubLogo}
+                    visitClubLogo={visitClubLogo}
+                    localClubName={localClubName}
+                    visitClubName={visitClubName}
+                    localTeamPoints={localTeamPoints}
+                    visitTeamPoints={visitTeamPoints}
+                />
+                <MatchCard
+                    localClubLogo={localClubLogo}
+                    visitClubLogo={visitClubLogo}
+                    localClubName={localClubName}
+                    visitClubName={visitClubName}
+                    localTeamPoints={localTeamPoints}
+                    visitTeamPoints={visitTeamPoints}
+                />
+                <MatchCard
+                    localClubLogo={localClubLogo}
+                    visitClubLogo={visitClubLogo}
+                    localClubName={localClubName}
+                    visitClubName={visitClubName}
+                    localTeamPoints={localTeamPoints}
+                    visitTeamPoints={visitTeamPoints}
+                />
+                <MatchCard
+                    localClubLogo={localClubLogo}
+                    visitClubLogo={visitClubLogo}
+                    localClubName={localClubName}
+                    visitClubName={visitClubName}
+                    localTeamPoints={localTeamPoints}
+                    visitTeamPoints={visitTeamPoints}
+                />
+
             </div>
         </div>
     );
