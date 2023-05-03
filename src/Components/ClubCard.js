@@ -10,18 +10,18 @@ const ClubCard = (props) => {
                         <div className="club-logo-container">
                             <img className="club-logo" src={props.clubLogo}/>
                         </div>
-                        <div className="club-name-container">
-                            <h1 className="title">
+                        <div className="local-club-name-container">
+                            <label className="title">
                                  {props.clubName}
-                            </h1>
+                            </label>
                         </div>
                     </div>
                     :
                     <div className="club-container">
-                        <div className="club-name-container">
-                            <h1 className="title">
+                        <div className="visit-club-name-container">
+                            <label className="title">
                                 {props.clubName}
-                            </h1>
+                            </label>
                         </div>
                         <div className="club-logo-container">
                             <img className="club-logo" src={props.clubLogo}/>

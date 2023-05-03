@@ -7,6 +7,9 @@
 }
 
 .local-club-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     padding: 5px 0 5px 0;
     width: 42.5%;;
     margin-right: 20px;
@@ -15,9 +18,15 @@
 
 .result-container{
     width: 15%;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
 }
 
 .visit-club-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     padding: 5px 0 5px 0;
     width: 42.5%;
     margin-left: 20px;
@@ -44,27 +53,23 @@
 }
 
 .club-logo-container{
+    height: auto;
     width: 30%;
-    text-align: center;
     margin: auto;
 }
 
-.club-name-container{
+.local-club-name-container{
+    height: auto;
     width: 70%;
-    text-align: center;
+    text-align: start;
+    margin: auto;
 }
 
-.points-container{
-    display: flex;
-    justify-content: center;
-}
-
-.team-points-container{
-    margin: 20px
-}
-
-.guion{
-    margin: 10px;
+.visit-club-name-container{
+    height: auto;
+    width: 70%;
+    text-align: end;
+    margin: auto;
 }
 
 .club-logo{
@@ -73,5 +78,19 @@
 
 .title{
     color: white;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 39px;
+}
+
+.team-points{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 39px;
+    color: #000000;
 }
 

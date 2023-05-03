@@ -38,6 +38,63 @@ const ResultsScreen = () => {
                     localTeamPoints={localTeamPoints}
                     visitTeamPoints={visitTeamPoints}
                 />
+                <MatchCard
+                    localClubLogo={localClubLogo}
+                    visitClubLogo={visitClubLogo}
+                    localClubName={localClubName}
+                    visitClubName={visitClubName}
+                    localTeamPoints={localTeamPoints}
+                    visitTeamPoints={visitTeamPoints}
+                />
+                <MatchCard
+                    localClubLogo={localClubLogo}
+                    visitClubLogo={visitClubLogo}
+                    localClubName={localClubName}
+                    visitClubName={visitClubName}
+                    localTeamPoints={localTeamPoints}
+                    visitTeamPoints={visitTeamPoints}
+                />
+                <MatchCard
+                    localClubLogo={localClubLogo}
+                    visitClubLogo={visitClubLogo}
+                    localClubName={localClubName}
+                    visitClubName={visitClubName}
+                    localTeamPoints={localTeamPoints}
+                    visitTeamPoints={visitTeamPoints}
+                />
+                <MatchCard
+                    localClubLogo={localClubLogo}
+                    visitClubLogo={visitClubLogo}
+                    localClubName={localClubName}
+                    visitClubName={visitClubName}
+                    localTeamPoints={localTeamPoints}
+                    visitTeamPoints={visitTeamPoints}
+                />
+                <MatchCard
+                    localClubLogo={localClubLogo}
+                    visitClubLogo={visitClubLogo}
+                    localClubName={localClubName}
+                    visitClubName={visitClubName}
+                    localTeamPoints={localTeamPoints}
+                    visitTeamPoints={visitTeamPoints}
+                />
+                <MatchCard
+                    localClubLogo={localClubLogo}
+                    visitClubLogo={visitClubLogo}
+                    localClubName={localClubName}
+                    visitClubName={visitClubName}
+                    localTeamPoints={localTeamPoints}
+                    visitTeamPoints={visitTeamPoints}
+                />
+                <MatchCard
+                    localClubLogo={localClubLogo}
+                    visitClubLogo={visitClubLogo}
+                    localClubName={localClubName}
+                    visitClubName={visitClubName}
+                    localTeamPoints={localTeamPoints}
+                    visitTeamPoints={visitTeamPoints}
+                />
+
             </div>
         </div>
     );

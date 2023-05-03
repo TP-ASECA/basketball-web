@@ -1,6 +1,5 @@
 import * as React from "react";
 import ClubCard from "./ClubCard";
-import Result from "./Result";
 import './UIcss/Match.css'
 
 const MatchCard = (props) => {
@@ -10,7 +9,9 @@ const MatchCard = (props) => {
                 <ClubCard clubLogo={props.localClubLogo} clubName={props.localClubName} isLocal={true}/>
             </div>
             <div className="result-container">
-                <Result localTeamPoints={props.localTeamPoints} visitTeamPoints={props.visitTeamPoints}/>
+                <label className="team-points">
+                    {props.localTeamPoints}  -  {props.visitTeamPoints}
+                </label>
             </div>
             <div className="visit-club-container">
                 <ClubCard clubLogo={props.visitClubLogo} clubName={props.visitClubName} isLocal={false}/>
