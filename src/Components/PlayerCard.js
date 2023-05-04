@@ -9,7 +9,6 @@ const PlayerCard = ({
     isMvp,
     score,
 }) => {
-    console.log(name)
     return (
         <div className="player-data-container">
             {

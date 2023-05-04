@@ -4,16 +4,36 @@ import './UIcss/Screen.css'
 import MatchCard from "../Components/MatchCard";
 import NbaLogo from "../assets/NbaLogo.png"
 import {useEffect, useState} from "react";
+import {get} from "../utilis/https";
 
 const ResultsScreen = () => {
 
-    const [matchesCardsData, setMatchesCardsData] = useState(null);
+    const [matchesCardsData, setMatchesCardsData] = useState([]);
 
-    // useEffect(()=>{
-    //     get("/getResults",{}).then(r => {
-    //         setMatchesCardsData(r)
-    //     })
-    // },[])
+    useEffect(()=>{
+        get("match",{}).then(r => {
+            setMatchesCardsData(r.data)
+        })
+    },[])
+
+    const getMatchesCards = () => {
+        if (matchesCardsData !== []) {
+            return (
+                matchesCardsData.map((matchCard) =>
+                    (
+                        <MatchCard
+                            matchId={matchCard.id}
+                            localClubLogo={matchCard.home}
+                            visitClubLogo={visitClubLogo}
+                            localClubName={localClubName}
+                            visitClubName={visitClubName}
+                            localTeamPoints={localTeamPoints}
+                            visitTeamPoints={visitTeamPoints}
+                        />
+                    ))
+            );
+        }
+    }
 
     const localClubLogo = NbaLogo
     const visitClubLogo = NbaLogo
@@ -39,15 +59,6 @@ const ResultsScreen = () => {
             <div className="results-container">
                 <MatchCard
                     matchId={matchId}
-                    localClubLogo={localClubLogo}
-                    visitClubLogo={visitClubLogo}
-                    localClubName={localClubName}
-                    visitClubName={visitClubName}
-                    localTeamPoints={localTeamPoints}
-                    visitTeamPoints={visitTeamPoints}
-                />
-                <MatchCard
-                    matchId={matchId2}
                     localClubLogo={localClubLogo}
                     visitClubLogo={visitClubLogo}
                     localClubName={localClubName}

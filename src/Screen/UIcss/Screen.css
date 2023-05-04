@@ -22,6 +22,45 @@
     width: 100%;
 }
 
+.add-results-and-clubs-container{
+    display: flex;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    width: 100%;
+    gap: 10px;
+}
+
+.autocomplete-container{
+    width: 42.5%;
+}
+
+.input-results-container{
+    display: flex;
+    width: 15%;
+    gap: 5px;
+}
+
+.result-input{
+    width: 45%;
+    background-color: #CCC;
+    border: none;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.guion-results{
+    width: 10%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    font-family: Inter, sans-serif;
+    font-style: normal;
+    font-size: 32px;
+    line-height: 39px;
+    color: #000000;
+}
+
 .players-container {
     display: grid;
     grid-template-columns: auto 60px;
