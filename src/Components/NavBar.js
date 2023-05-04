@@ -1,5 +1,5 @@
 import * as React from "react";
-import NbaLogo from "../Utilities/NbaLogo.png"
+import NbaLogo from "../assets/NbaLogo.png"
 import "./UIcss/NavBar.css"
 import {useNavigate} from "react-router-dom";
 

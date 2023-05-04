@@ -13,7 +13,7 @@ function App() {
             <Routes>
                 <Route path="/" element={<ResultsScreen/>}/>
                 <Route path="/addMatch" element={<AddMatchScreen/>}/>
-                <Route path="/match" element={<MatchScreen/>}/>
+                <Route path="/match/:matchId" element={<MatchScreen/>}/>
             </Routes>
         </div>
     </>

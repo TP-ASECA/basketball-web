@@ -16,4 +16,5 @@
     position: relative;
     left: 0;
     height: 100%;
+    cursor: pointer;
 }

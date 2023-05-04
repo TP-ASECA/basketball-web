@@ -2,13 +2,18 @@ import * as React from "react";
 import AddMatchButton from "../Components/AddMatchButton";
 import './UIcss/Screen.css'
 import MatchCard from "../Components/MatchCard";
-import NbaLogo from "../Utilities/NbaLogo.png"
-import InfiniteScroll from "react-infinite-scroll-component";
-import {useState} from "react";
+import NbaLogo from "../assets/NbaLogo.png"
+import {useEffect, useState} from "react";
 
 const ResultsScreen = () => {
 
-    const [matchData, setMatchData] = useState(null);
+    const [matchesCardsData, setMatchesCardsData] = useState(null);
+
+    // useEffect(()=>{
+    //     get("/getResults",{}).then(r => {
+    //         setMatchesCardsData(r)
+    //     })
+    // },[])
 
     const localClubLogo = NbaLogo
     const visitClubLogo = NbaLogo
@@ -16,6 +21,8 @@ const ResultsScreen = () => {
     const visitClubName = "Golden State Warriors"
     const localTeamPoints = "101"
     const visitTeamPoints = "95"
+    const matchId = "soyLakersVsGoldenStateWarriors"
+    const matchId2 = "soyOtroId"
 
     return (
         <div className="container">
@@ -31,6 +38,7 @@ const ResultsScreen = () => {
             </div>
             <div className="results-container">
                 <MatchCard
+                    matchId={matchId}
                     localClubLogo={localClubLogo}
                     visitClubLogo={visitClubLogo}
                     localClubName={localClubName}
@@ -39,6 +47,7 @@ const ResultsScreen = () => {
                     visitTeamPoints={visitTeamPoints}
                 />
                 <MatchCard
+                    matchId={matchId2}
                     localClubLogo={localClubLogo}
                     visitClubLogo={visitClubLogo}
                     localClubName={localClubName}
@@ -46,55 +55,6 @@ const ResultsScreen = () => {
                     localTeamPoints={localTeamPoints}
                     visitTeamPoints={visitTeamPoints}
                 />
-                <MatchCard
-                    localClubLogo={localClubLogo}
-                    visitClubLogo={visitClubLogo}
-                    localClubName={localClubName}
-                    visitClubName={visitClubName}
-                    localTeamPoints={localTeamPoints}
-                    visitTeamPoints={visitTeamPoints}
-                />
-                <MatchCard
-                    localClubLogo={localClubLogo}
-                    visitClubLogo={visitClubLogo}
-                    localClubName={localClubName}
-                    visitClubName={visitClubName}
-                    localTeamPoints={localTeamPoints}
-                    visitTeamPoints={visitTeamPoints}
-                />
-                <MatchCard
-                    localClubLogo={localClubLogo}
-                    visitClubLogo={visitClubLogo}
-                    localClubName={localClubName}
-                    visitClubName={visitClubName}
-                    localTeamPoints={localTeamPoints}
-                    visitTeamPoints={visitTeamPoints}
-                />
-                <MatchCard
-                    localClubLogo={localClubLogo}
-                    visitClubLogo={visitClubLogo}
-                    localClubName={localClubName}
-                    visitClubName={visitClubName}
-                    localTeamPoints={localTeamPoints}
-                    visitTeamPoints={visitTeamPoints}
-                />
-                <MatchCard
-                    localClubLogo={localClubLogo}
-                    visitClubLogo={visitClubLogo}
-                    localClubName={localClubName}
-                    visitClubName={visitClubName}
-                    localTeamPoints={localTeamPoints}
-                    visitTeamPoints={visitTeamPoints}
-                />
-                <MatchCard
-                    localClubLogo={localClubLogo}
-                    visitClubLogo={visitClubLogo}
-                    localClubName={localClubName}
-                    visitClubName={visitClubName}
-                    localTeamPoints={localTeamPoints}
-                    visitTeamPoints={visitTeamPoints}
-                />
-
             </div>
         </div>
     );

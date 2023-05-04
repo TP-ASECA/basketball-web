@@ -18,7 +18,8 @@ const AddMatchScreen = () => {
                 </div>
             </div>
             <div className="">
-                {/*aca va los dos clubes y el resultado */}
+                {/*drop down con los clubes que se traen desde el back y poder seleccionar uno y que aparezcan los jugadores de ese equipo*/}
+                {/*y un input al lado para cada equipo para ingresar cuantos puntos hicieron*/}
             </div>
             <div className="teams-container">
                 <div className="team-container">
@@ -37,7 +38,7 @@ const AddMatchScreen = () => {
                     </div>
                 </div>
                 <div className="team-container">
-                    <div className="players-container"> 
+                    <div className="players-container">
                         <PlayerCard 
                             name={"Lebron James"}
                             photo={Lebron}

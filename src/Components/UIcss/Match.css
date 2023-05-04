@@ -4,6 +4,7 @@
     margin-bottom: 2px;
     height: 60%;
     width: 100%;
+    cursor: pointer;
 }
 
 .local-club-container{
@@ -46,6 +47,7 @@
 .club-container{
     background-color: rgb(42, 45, 45, 1);
     display: flex;
+    height: 90%;
 }
 
 .team-container {
@@ -74,6 +76,8 @@
 
 .club-logo{
     height: 50px;
+    aspect-ratio: auto;
+    object-fit: contain;
 }
 
 .title{
@@ -86,6 +90,7 @@
 }
 
 .team-points{
+    text-align: center;
     font-family: 'Inter';
     font-style: normal;
     font-weight: 700;
