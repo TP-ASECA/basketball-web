@@ -16,6 +16,12 @@ const MatchScreen = () => {
     const [matchData, setMatchData] = useState(null)
     const [matchId, setMatchId] = useState("")
 
+    // useEffect(()=>{
+    //     get("/getMatch",{}).then(r => {
+    //         setMatchData(r)
+    //     })
+    // },[])
+
     const localClubLogo = NbaLogo
     const visitClubLogo = NbaLogo
     const localClubName = "LA Lakers"
@@ -35,7 +41,7 @@ const MatchScreen = () => {
     return (
         <div className="container">
             <div className="header-container">
-                    <ArrowBackIcon onClick={() => navigate('/')} style={{fontSize:'32px', marginTop:'20px', marginBottom:'10px', cursor:'hand'}}/>
+                    <ArrowBackIcon onClick={() => navigate('/')} style={{fontSize:'32px', marginTop:'20px', marginBottom:'10px', cursor:'pointer'}}/>
             </div>
             <div className="match-container">
                 <MatchCard
