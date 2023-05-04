@@ -3,8 +3,6 @@ import './UIcss/Screen.css'
 import {useLocation, useNavigate, useParams} from "react-router-dom";
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import MatchCard from "../Components/MatchCard";
-import {useEffect, useState} from "react";
-import NbaLogo from "../assets/NbaLogo.png";
 import PlayerCard from "../Components/PlayerCard";
 import Lebron from "../assets/lebron.png";
 
