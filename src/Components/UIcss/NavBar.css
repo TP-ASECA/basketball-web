@@ -12,6 +12,10 @@
     height: 60px;
 }
 
+.navbar-logo:hover {
+    transform: scale(1.05);
+}
+
 .navbar-logo-image {
     position: relative;
     left: 0;

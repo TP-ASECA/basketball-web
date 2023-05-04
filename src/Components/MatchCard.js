@@ -3,28 +3,30 @@ import ClubCard from "./ClubCard";
 import './UIcss/Match.css'
 import {useNavigate} from "react-router-dom";
 
-const MatchCard = (props) => {
+const MatchCard = ({match}) => {
 
-    const navigate = useNavigate()
+    const navigate = useNavigate();
+    const homeTeam = match.homeTeamPlayersMatchStats[0]?.player?.team
+    const awayTeam = match.awayTeamPlayersMatchStats[0]?.player?.team
 
     const navigateToMatchData = () => {
-        if (props.matchId !== undefined && props.matchId !== ""){
-            navigate('/match/' + props.matchId)
+        if (match.id !== undefined && match.id !== ""){
+            navigate('/match/' + match.id, {state: match})
         }
     }
 
     return (
         <div className="match-container" onClick={() => navigateToMatchData()}>
             <div className="local-club-container">
-                <ClubCard clubLogo={props.localClubLogo} clubName={props.localClubName} isLocal={true}/>
+                <ClubCard clubLogo={homeTeam.imageURL} clubName={homeTeam.name} isLocal={true}/>
             </div>
             <div className="result-container">
                 <label className="team-points">
-                    {props.localTeamPoints}  -  {props.visitTeamPoints}
+                    {match.homeTeamPoints}  -  {match.awayTeamPoints}
                 </label>
             </div>
             <div className="visit-club-container">
-                <ClubCard clubLogo={props.visitClubLogo} clubName={props.visitClubName} isLocal={false}/>
+                <ClubCard clubLogo={awayTeam.imageURL} clubName={awayTeam.name} isLocal={false}/>
             </div>
         </div>
     );

@@ -1,6 +1,6 @@
 import * as React from "react";
 import './UIcss/Screen.css'
-import {useNavigate, useParams} from "react-router-dom";
+import {useLocation, useNavigate, useParams} from "react-router-dom";
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import MatchCard from "../Components/MatchCard";
 import {useEffect, useState} from "react";
@@ -10,33 +10,9 @@ import Lebron from "../assets/lebron.png";
 
 const MatchScreen = () => {
 
-    let params = useParams()
     const navigate = useNavigate()
-
-    const [matchData, setMatchData] = useState(null)
-    const [matchId, setMatchId] = useState("")
-
-    // useEffect(()=>{
-    //     get("/getMatch",{}).then(r => {
-    //         setMatchData(r)
-    //     })
-    // },[])
-
-    const localClubLogo = NbaLogo
-    const visitClubLogo = NbaLogo
-    const localClubName = "LA Lakers"
-    const visitClubName = "Golden State Warriors"
-    const localTeamPoints = "101"
-    const visitTeamPoints = "95"
-
-    useEffect(() => {
-        return () => {
-            if (params.matchId !== "" && params.matchId !== undefined){
-                setMatchId(params.matchId)
-            }
-        };
-    }, [params.matchId]);
-
+    const {state: match} = useLocation()
+    console.log(match)
 
     return (
         <div className="container">
@@ -45,13 +21,7 @@ const MatchScreen = () => {
             </div>
             <div className="match-container">
                 <MatchCard
-                    // matchId={matchId}
-                    // localClubLogo={localClubLogo}
-                    // visitClubLogo={visitClubLogo}
-                    // localClubName={localClubName}
-                    // visitClubName={visitClubName}
-                    // localTeamPoints={localTeamPoints}
-                    // visitTeamPoints={visitTeamPoints}
+                   match={match}
                 />
             </div>
             <div className="teams-container">

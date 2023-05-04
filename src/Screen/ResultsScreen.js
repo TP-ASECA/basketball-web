@@ -5,6 +5,7 @@ import MatchCard from "../Components/MatchCard";
 import NbaLogo from "../assets/NbaLogo.png"
 import {useEffect, useState} from "react";
 import {get} from "../utilis/https";
+import {useLocation} from "react-router-dom";
 
 const ResultsScreen = () => {
 
@@ -12,37 +13,11 @@ const ResultsScreen = () => {
 
     useEffect(()=>{
         get("match",{}).then(r => {
-            setMatchesCardsData(r.data)
+            console.log(r.content)
+            setMatchesCardsData(r.content)
         })
     },[])
 
-    const getMatchesCards = () => {
-        if (matchesCardsData !== []) {
-            return (
-                matchesCardsData.map((matchCard) =>
-                    (
-                        <MatchCard
-                            matchId={matchCard.id}
-                            localClubLogo={matchCard.home}
-                            visitClubLogo={visitClubLogo}
-                            localClubName={localClubName}
-                            visitClubName={visitClubName}
-                            localTeamPoints={localTeamPoints}
-                            visitTeamPoints={visitTeamPoints}
-                        />
-                    ))
-            );
-        }
-    }
-
-    const localClubLogo = NbaLogo
-    const visitClubLogo = NbaLogo
-    const localClubName = "LA Lakers"
-    const visitClubName = "Golden State Warriors"
-    const localTeamPoints = "101"
-    const visitTeamPoints = "95"
-    const matchId = "soyLakersVsGoldenStateWarriors"
-    const matchId2 = "soyOtroId"
 
     return (
         <div className="container">
@@ -57,15 +32,17 @@ const ResultsScreen = () => {
                 </div>
             </div>
             <div className="results-container">
-                <MatchCard
-                    matchId={matchId}
-                    localClubLogo={localClubLogo}
-                    visitClubLogo={visitClubLogo}
-                    localClubName={localClubName}
-                    visitClubName={visitClubName}
-                    localTeamPoints={localTeamPoints}
-                    visitTeamPoints={visitTeamPoints}
-                />
+                {
+                    matchesCardsData.length ?
+                    matchesCardsData.map(m => (
+                        <MatchCard
+                            match={m}
+                        />)
+                    ):
+                        <label className="team-points">
+                            NO MATCHES
+                        </label>
+                }
             </div>
         </div>
     );

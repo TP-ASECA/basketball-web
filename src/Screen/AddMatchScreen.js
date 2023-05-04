@@ -11,8 +11,15 @@ import {get} from "../utilis/https";
 const AddMatchScreen = () => {
 
     const [clubsData, setClubsData] = useState([])
-    const [homeClubData, setHomeClubData]= useState(null)
-    const [awayClubData, setAwayClubData]= useState(null)
+    const [homeClubData, setHomeClubData] = useState(null)
+    const [awayClubData, setAwayClubData] = useState(null)
+    const [homePlayersData,setHomePlayersData] = useState(null)
+    const [awayPlayersData,setAwayPlayersData] = useState(null)
+
+    console.log(homePlayersData)
+    console.log(awayPlayersData)
+    console.log(homeClubData)
+    console.log(awayClubData)
 
     const getClubs = async () => {
         const response = await get(
@@ -22,11 +29,40 @@ const AddMatchScreen = () => {
         return response;
     };
 
+    const getHomePlayers = async () => {
+        const response = await get(
+            "player?teamId=" + homeClubData.id,
+            {}
+        );
+        return response;
+    }
+
+    const getAwayPlayers = async () => {
+        const response = await get(
+            "player?teamId=" + awayClubData.id,
+            {}
+        );
+        return response;
+    }
+
     useEffect(() => {
         return () => {
             getClubs().then(r => setClubsData(r.content))
         };
     }, []);
+
+    useEffect(() => {
+        if (homeClubData !== null){
+            getHomePlayers().then(r => setHomePlayersData(r.content))
+        }
+    }, [homeClubData]);
+
+
+    useEffect(() => {
+        if (awayClubData !== null){
+            getAwayPlayers().then(r => setAwayPlayersData(r.content))
+        }
+    }, [awayClubData]);
 
     const options = () => {
         if (clubsData !== []) {
@@ -52,8 +88,6 @@ const AddMatchScreen = () => {
                 </div>
             </div>
             <div className="add-results-and-clubs-container">
-                {/*drop down con los clubes que se traen desde el back y poder seleccionar uno y que aparezcan los jugadores de ese equipo*/}
-                {/*y un input al lado para cada equipo para ingresar cuantos puntos hicieron*/}
                 <div className="autocomplete-container">
                     <Autocomplete
                         disablePortal
@@ -67,7 +101,6 @@ const AddMatchScreen = () => {
                 </div>
                 <div className="input-results-container">
                     <input className="result-input"/>
-                    <label className="guion-results"> - </label>
                     <input className='result-input'/>
                 </div>
                 <div className="autocomplete-container">
