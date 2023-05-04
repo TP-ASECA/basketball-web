@@ -3,6 +3,7 @@ import './UIcss/Screen.css'
 import SaveMatchButton from "../Components/SaveMatchButton";
 import PlayerCard from "../Components/PlayerCard"
 import Lebron from "../assets/lebron.png"
+import ClubDropDown from "../Components/ClubDropDown";
 
 const AddMatchScreen = () => {
     return (
@@ -20,6 +21,7 @@ const AddMatchScreen = () => {
             <div className="">
                 {/*drop down con los clubes que se traen desde el back y poder seleccionar uno y que aparezcan los jugadores de ese equipo*/}
                 {/*y un input al lado para cada equipo para ingresar cuantos puntos hicieron*/}
+                {/*<ClubDropDown/>*/}
             </div>
             <div className="teams-container">
                 <div className="team-container">
