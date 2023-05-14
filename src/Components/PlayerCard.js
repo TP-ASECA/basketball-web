@@ -1,7 +1,6 @@
 import * as React from "react";
 import './UIcss/Player.css'
 import StarIcon from '@mui/icons-material/Star';
-import StarBorderIcon from '@mui/icons-material/StarBorder';
 import {useEffect, useState} from "react";
 
 const PlayerCard = ({

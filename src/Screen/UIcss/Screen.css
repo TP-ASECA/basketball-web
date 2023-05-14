@@ -64,7 +64,7 @@
 .players-container {
     display: grid;
     grid-template-columns: auto;
-    grid-template-rows: repeat(60px, 10);
+    grid-template-rows: repeat(60px, 10px);
     gap: 4px;
 }
 

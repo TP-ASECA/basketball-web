@@ -1,10 +1,9 @@
 import * as React from "react";
 import './UIcss/Screen.css'
-import {useLocation, useNavigate, useParams} from "react-router-dom";
+import {useLocation, useNavigate} from "react-router-dom";
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import MatchCard from "../Components/MatchCard";
 import PlayerCard from "../Components/PlayerCard";
-import Lebron from "../assets/lebron.png";
 
 const MatchScreen = () => {
 
