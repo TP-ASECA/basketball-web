@@ -121,9 +121,9 @@ const AddMatchScreen = () => {
                     <SaveMatchButton onClick={createMatch}/>
                 </div>
             </div>
-            <div>
+            <div style={{marginBottom: 20}}>
                 <LocalizationProvider dateAdapter={AdapterDayjs}>
-                    <DatePicker label={"Select match date"} onChange={setDate} value={date} />
+                    <DatePicker label={"Select match date"} onChange={setDate} value={date}/>
                 </LocalizationProvider>
             </div>
             <div className="add-results-and-clubs-container">
