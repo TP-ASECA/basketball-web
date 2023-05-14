@@ -1,9 +1,9 @@
 import * as React from "react";
 import './UIcss/AddMatchButton.css'
 
-const SaveMatchButton = () => {
+const SaveMatchButton = ({onClick}) => {
     return (
-        <button className='add-match-button'>Save Match</button>
+        <button className='add-match-button' onClick={onClick}>Save Match</button>
     );
 };
 

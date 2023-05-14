@@ -25,40 +25,35 @@ const MatchScreen = () => {
             <div className="teams-container">
                 <div className="team-container">
                     <div className="players-container">
-                        <PlayerCard
-                            name={"Lebron James"}
-                            photo={Lebron}
-                        />
-                        <label className="team-points">
-                            2
-                        </label>
-                        <PlayerCard
-                            isMvp
-                            name={"Lebron James"}
-                            photo={Lebron}
-                        />
-                        <label className="team-points">
-                            2
-                        </label>
+                        {match.homeTeamPlayersMatchStats?.map(playerStats => {
+                            return(
+                                <PlayerCard
+                                    key={playerStats.playerId}
+                                    isMvp={match.mvp.id === playerStats.playerId}
+                                    id={playerStats.playerId}
+                                    name={playerStats.player.name}
+                                    number={playerStats.player.number}
+                                    fixedScore={playerStats.points}
+                                />
+                            )
+                        })}
                     </div>
                 </div>
                 <div className="team-container">
                     <div className="players-container">
-                        <PlayerCard
-                            name={"Lebron James"}
-                            photo={Lebron}
-                        />
-                        <label className="team-points">
-                            2
-                        </label>
-                        <PlayerCard
-                            isMvp
-                            name={"Lebron James"}
-                            photo={Lebron}
-                        />
-                        <label className="team-points">
-                            2
-                        </label>
+                        {match.awayTeamPlayersMatchStats?.map(playerStats => {
+                            return(
+                                <PlayerCard
+                                    key={playerStats.playerId}
+                                    isMvp={match.mvp.id === playerStats.playerId}
+                                    id={playerStats.playerId}
+                                    name={playerStats.player.name}
+                                    number={playerStats.player.number}
+                                    fixedScore={playerStats.points}
+                                    isAwayTeam
+                                />
+                            )
+                        })}
                     </div>
                 </div>
             </div>

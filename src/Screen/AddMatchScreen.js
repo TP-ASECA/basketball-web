@@ -6,7 +6,10 @@ import Lebron from "../assets/lebron.png"
 import {useEffect, useState} from "react";
 import TextField from "@mui/material/TextField";
 import Autocomplete from "@mui/material/Autocomplete";
-import {get} from "../utilis/https";
+import {get, post} from "../utilis/https";
+import {redirect} from "react-router-dom";
+import {DatePicker, LocalizationProvider} from "@mui/x-date-pickers";
+import {AdapterDayjs} from "@mui/x-date-pickers/AdapterDayjs";
 
 const AddMatchScreen = () => {
 
@@ -15,11 +18,27 @@ const AddMatchScreen = () => {
     const [awayClubData, setAwayClubData] = useState(null)
     const [homePlayersData,setHomePlayersData] = useState(null)
     const [awayPlayersData,setAwayPlayersData] = useState(null)
+    const [mvpId, setMvpId] = useState()
+    const [date, setDate] = useState()
 
-    console.log(homePlayersData)
-    console.log(awayPlayersData)
-    console.log(homeClubData)
-    console.log(awayClubData)
+    const [homeTeamScores, setHomeTeamScores] = useState([])
+    const [awayTeamScores, setAwayTeamScores] = useState([])
+
+
+    useEffect(() => {
+        setHomeTeamScores([])
+    }, [homeClubData?.id])
+
+    useEffect(() => {
+        setAwayTeamScores([])
+    }, [awayClubData?.id])
+    const updateTeamScores = (newScore, teamScores) => {
+        return teamScores?.filter(it => it.playerId !== newScore.playerId).concat(newScore);
+    }
+
+    const calculateTeamScore = (teamScores) => {
+        return teamScores?.map(it => it.points).reduce((prev, next) => Number(prev) + Number(next), 0) || 0
+    }
 
     const getClubs = async () => {
         const response = await get(
@@ -28,6 +47,21 @@ const AddMatchScreen = () => {
         );
         return response;
     };
+
+    const createMatch = async () => {
+        const response = await post(
+            "match/add",
+            {
+                gameDate: date,
+                homeTeamId: homeClubData.id,
+                awayTeamId: awayClubData.id,
+                homeTeamPlayersMatchStats: homeTeamScores,
+                awayTeamPlayersMatchStats: awayTeamScores,
+                mvpId: mvpId,
+            }
+        ).then(() => window.location.href = "/")
+    }
+
 
     const getHomePlayers = async () => {
         const response = await get(
@@ -84,8 +118,13 @@ const AddMatchScreen = () => {
                     </h1>
                 </div>
                 <div className="button-container">
-                    <SaveMatchButton/>
+                    <SaveMatchButton onClick={createMatch}/>
                 </div>
+            </div>
+            <div>
+                <LocalizationProvider dateAdapter={AdapterDayjs}>
+                    <DatePicker label={"Select match date"} onChange={setDate} value={date} />
+                </LocalizationProvider>
             </div>
             <div className="add-results-and-clubs-container">
                 <div className="autocomplete-container">
@@ -100,8 +139,8 @@ const AddMatchScreen = () => {
                     />
                 </div>
                 <div className="input-results-container">
-                    <input className="result-input"/>
-                    <input className='result-input'/>
+                    <input readOnly className="result-input" value={calculateTeamScore(homeTeamScores)}/>
+                    <input readOnly className='result-input' value={calculateTeamScore(awayTeamScores)}/>
                 </div>
                 <div className="autocomplete-container">
                     <Autocomplete
@@ -117,33 +156,38 @@ const AddMatchScreen = () => {
             </div>
             <div className="teams-container">
                 <div className="team-container">
-                    <div className="players-container"> 
-                        <PlayerCard 
-                            name={"Lebron James"}
-                            photo={Lebron}
-                        />
-                        <input className="player-score-input" type={"number"}/>
-                        <PlayerCard 
-                            isMvp
-                            name={"Lebron James"}
-                            photo={Lebron}
-                        />
-                        <input className="player-score-input" type={"number"}/>
+                    <div className="players-container">
+                        {homePlayersData?.map(player => {
+                            return(
+                                <PlayerCard
+                                    key={player.id}
+                                    onMvpClick={() => setMvpId(player.id)}
+                                    isMvp={mvpId === player.id}
+                                    id={player.id}
+                                    name={player.name}
+                                    number={player.number}
+                                    onScoreChange={(newScore) => setHomeTeamScores(updateTeamScores(newScore, homeTeamScores))}
+                                />
+                        )
+                        })}
                     </div>
                 </div>
                 <div className="team-container">
                     <div className="players-container">
-                        <PlayerCard 
-                            name={"Lebron James"}
-                            photo={Lebron}
-                        />
-                        <input className="player-score-input" type={"number"}/>
-                        <PlayerCard 
-                            isMvp
-                            name={"Lebron James"}
-                            photo={Lebron}
-                        />
-                        <input className="player-score-input" type={"number"}/>
+                        {awayPlayersData?.map(player => {
+                            return(
+                                <PlayerCard
+                                    key={player.id}
+                                    onMvpClick={() => setMvpId(player.id)}
+                                    isAwayTeam
+                                    isMvp={mvpId === player.id}
+                                    id={player.id}
+                                    name={player.name}
+                                    number={player.number}
+                                    onScoreChange={(newScore) => setAwayTeamScores(updateTeamScores(newScore, awayTeamScores))}
+                                />
+                            )
+                        })}
                     </div>
                 </div>
             </div>
