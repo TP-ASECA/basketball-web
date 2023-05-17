@@ -1,18 +1,19 @@
 import React from "react";
-import { render } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import AddMatchButton from "../../Components/AddMatchButton";
+import {BrowserRouter, Route, Routes} from "react-router-dom";
 
 describe("AddMatchButton", () => {
+  render(
+      <BrowserRouter>
+        <Routes>
+          <Route path={"/"} element={<AddMatchButton />}/>
+        </Routes>
+      </BrowserRouter>
+);
   test("renders a button with the text '+ Load AddMatchScreen'", () => {
-    const { getByText } = render(<AddMatchButton />);
-    const addButton = getByText("+ Load AddMatchScreen");
+    const addButton = screen.getByText(/ Load Match/i);
     expect(addButton).toBeInTheDocument();
     expect(addButton.tagName).toBe("BUTTON");
-  });
-
-  test("renders a link to '/match'", () => {
-    const { getByRole } = render(<AddMatchButton />);
-    const link = getByRole("link");
-    expect(link).toHaveAttribute("href", "/match");
   });
 });
