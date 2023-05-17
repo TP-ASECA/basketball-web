@@ -22,7 +22,6 @@ const AddMatchScreen = () => {
     const [homeTeamScores, setHomeTeamScores] = useState([])
     const [awayTeamScores, setAwayTeamScores] = useState([])
 
-
     useEffect(() => {
         setHomeTeamScores([])
     }, [homeClubData?.id])
@@ -35,7 +34,7 @@ const AddMatchScreen = () => {
     }
 
     const calculateTeamScore = (teamScores) => {
-        return teamScores?.map(it => it.points).reduce((prev, next) => Number(prev) + Number(next), 0) || 0
+        return teamScores?.filter(it => !!it.points).map(it => it.points).reduce((prev, next) => Number(prev) + Number(next), 0) || 0
     }
 
     const getClubs = async () => {

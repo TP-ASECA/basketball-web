@@ -13,7 +13,6 @@ const ResultsScreen = () => {
 
     useEffect(()=>{
         get("match",{}).then(r => {
-            console.log(r.content)
             setMatchesCardsData(r.content)
         })
     },[])

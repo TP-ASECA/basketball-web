@@ -15,8 +15,6 @@ const MatchCard = ({match}) => {
         }
     }
 
-    console.log(match)
-
     return (
         <div className="match-container" onClick={() => navigateToMatchData()}>
             <div className="local-club-container">

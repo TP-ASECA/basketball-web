@@ -9,7 +9,6 @@ const MatchScreen = () => {
 
     const navigate = useNavigate()
     const {state: match} = useLocation()
-    console.log(match)
 
     return (
         <div className="container">
