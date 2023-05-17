@@ -7,7 +7,7 @@ const AddMatchButton = () => {
     const navigate = useNavigate()
 
     return (
-        <button className='add-match-button' onClick={()=>{navigate('/addMatch')}}>+ Load Match</button>
+        <button className='add-match-button' id="addMatchButton" onClick={()=>{navigate('/addMatch')}}>+ Load Match</button>
     );
 };
 

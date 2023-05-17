@@ -16,7 +16,7 @@ const MatchCard = ({match}) => {
     }
 
     return (
-        <div className="match-container" onClick={() => navigateToMatchData()}>
+        <div id={match.id} className="match-container" onClick={() => navigateToMatchData()}>
             <div className="local-club-container">
                 <ClubCard clubLogo={homeTeam.imageURL} clubName={homeTeam.name} isLocal={true}/>
             </div>

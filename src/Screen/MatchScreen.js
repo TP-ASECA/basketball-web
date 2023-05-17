@@ -13,7 +13,7 @@ const MatchScreen = () => {
     return (
         <div className="container">
             <div className="header-container">
-                    <ArrowBackIcon onClick={() => navigate('/')} style={{fontSize:'32px', marginTop:'20px', marginBottom:'10px', cursor:'pointer'}}/>
+                    <ArrowBackIcon onClick={() => navigate('/')} id="arrowId" style={{fontSize:'32px', marginTop:'20px', marginBottom:'10px', cursor:'pointer'}}/>
             </div>
             <div className="match-container">
                 <MatchCard

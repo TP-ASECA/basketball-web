@@ -21,12 +21,12 @@ const PlayerCard = ({
     return (
         <div className="player-data-container" style={{flexDirection: isAwayTeam ? "row-reverse" : "row"}}>
             {
-                isMvp ? <StarIcon style={{fill: "gold"}} /> : <StarIcon style={{fill: "grey"}} onClick={onMvpClick}/>
+                isMvp ? <StarIcon style={{fill: "gold"}} /> : <StarIcon style={{fill: "grey"}} id={id+"-Star"} onClick={onMvpClick}/>
             }
             <h3 className="player-name">
                 {name}
             </h3>
-            <input className="score-input" type={"number"} onChange={(e) => setScore(e.target.value)} value={fixedScore ? fixedScore : score} disabled={!!fixedScore}/>
+            <input id={id} className="score-input" type={"number"} onChange={(e) => setScore(e.target.value)} value={fixedScore ? fixedScore : score} disabled={!!fixedScore}/>
         </div>
     );
 };

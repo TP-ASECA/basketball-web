@@ -3,7 +3,7 @@ import './UIcss/AddMatchButton.css'
 
 const SaveMatchButton = ({onClick}) => {
     return (
-        <button className='add-match-button' onClick={onClick}>Save Match</button>
+        <button className='add-match-button' id="saveMatchButton" onClick={onClick}>Save Match</button>
     );
 };
 

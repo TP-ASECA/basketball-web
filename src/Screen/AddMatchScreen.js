@@ -117,12 +117,13 @@ const AddMatchScreen = () => {
             </div>
             <div style={{marginBottom: 20}}>
                 <LocalizationProvider dateAdapter={AdapterDayjs}>
-                    <DatePicker label={"Select match date"} onChange={setDate} value={date}/>
+                    <DatePicker className="date-picker" label={"Select match date"} onChange={setDate} value={date}/>
                 </LocalizationProvider>
             </div>
             <div className="add-results-and-clubs-container">
                 <div className="autocomplete-container">
                     <Autocomplete
+                        className="HomeTeamSelect"
                         disablePortal
                         value={homeClubData}
                         id="combo-box-demo"
@@ -133,11 +134,12 @@ const AddMatchScreen = () => {
                     />
                 </div>
                 <div className="input-results-container">
-                    <input readOnly className="result-input" value={calculateTeamScore(homeTeamScores)}/>
-                    <input readOnly className='result-input' value={calculateTeamScore(awayTeamScores)}/>
+                    <input readOnly className="result-input" id="homeResult" value={calculateTeamScore(homeTeamScores)}/>
+                    <input readOnly className='result-input' id="awayResult" value={calculateTeamScore(awayTeamScores)}/>
                 </div>
                 <div className="autocomplete-container">
                     <Autocomplete
+                        className="AwayTeamSelect"
                         disablePortal
                         value={awayClubData}
                         id="combo-box-demo"
