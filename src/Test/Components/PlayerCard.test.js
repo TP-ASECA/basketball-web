@@ -1,6 +1,7 @@
 import React from "react";
 import {render, screen} from "@testing-library/react";
 import PlayerCard from "../../Components/PlayerCard";
+import '@testing-library/jest-dom'
 jest.mock("axios")
 
 describe("Player card render test", () => {
