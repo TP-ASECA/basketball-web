@@ -10,7 +10,7 @@ function App() {
   return (
     <>
         <ToastContainer
-            style={{top:'9vh', fontSize: "18px"}}
+            style={{top:'200px', fontSize: "18px"}}
             position="top-center"
             autoClose={5000}
             hideProgressBar={false}
