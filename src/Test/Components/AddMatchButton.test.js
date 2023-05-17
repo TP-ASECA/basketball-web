@@ -2,6 +2,8 @@ import React from "react";
 import { render, screen } from "@testing-library/react";
 import AddMatchButton from "../../Components/AddMatchButton";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
+import '@testing-library/jest-dom'
+
 
 describe("AddMatchButton", () => {
   render(
