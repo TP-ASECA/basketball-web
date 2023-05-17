@@ -51,8 +51,8 @@ const AddMatchScreen = () => {
                 gameDate: date,
                 homeTeamId: homeClubData.id,
                 awayTeamId: awayClubData.id,
-                homeTeamPlayersMatchStats: homeTeamScores,
-                awayTeamPlayersMatchStats: awayTeamScores,
+                homeTeamPlayersMatchStats: homeTeamScores.filter(it => !!it.points),
+                awayTeamPlayersMatchStats: awayTeamScores.filter(it => !!it.points),
                 mvpId: mvpId,
             }
         ).then(() => window.location.href = "/")
