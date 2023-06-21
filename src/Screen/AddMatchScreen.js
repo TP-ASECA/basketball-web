@@ -30,6 +30,7 @@ const AddMatchScreen = () => {
     useEffect(() => {
         setAwayTeamScores([])
     }, [awayClubData?.id])
+
     const updateTeamScores = (newScore, teamScores) => {
         return teamScores?.filter(it => it.playerId !== newScore.playerId).concat(newScore);
     }
