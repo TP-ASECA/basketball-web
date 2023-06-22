@@ -32,8 +32,8 @@ const PlayerCard = ({
                 {name}
             </h3>
             <div className={'inputs-container'} style={{flexDirection: isAwayTeam ? "row-reverse" : "row"}}>
-                <input id={id} className="score-input-secondary" type={"number"} onChange={(e) => setRebounds(e.target.value)} value={fixedRebounds ? fixedRebounds : rebounds} disabled={!!fixedRebounds}/>
-                <input id={id} className="score-input-secondary" type={"number"} onChange={(e) => setFaults(e.target.value)} value={fixedFaults ? fixedFaults : faults} disabled={!!fixedFaults}/>
+                <input id={id} className="score-input" type={"number"} onChange={(e) => setRebounds(e.target.value)} value={fixedRebounds ? fixedRebounds : rebounds} disabled={!!fixedRebounds}/>
+                <input id={id} className="score-input" type={"number"} onChange={(e) => setFaults(e.target.value)} value={fixedFaults ? fixedFaults : faults} disabled={!!fixedFaults}/>
                 <input id={id} className="score-input" type={"number"} onChange={(e) => setScore(e.target.value)} value={fixedScore ? fixedScore : score} disabled={!!fixedScore}/>
             </div>
         </div>

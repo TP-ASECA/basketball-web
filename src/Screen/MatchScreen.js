@@ -36,8 +36,8 @@ const MatchScreen = () => {
                                     name={playerStats.player.name}
                                     number={playerStats.player.number}
                                     fixedScore={playerStats.points}
-                                    // fixedRebounds={playerStats.rebounds}
-                                    // fixedDaults={playerStats.faults}
+                                    fixedRebounds={playerStats.rebounds}
+                                    fixedFaults={playerStats.faults}
                                 />
                             )
                         })}
