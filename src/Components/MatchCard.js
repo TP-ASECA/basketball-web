@@ -3,7 +3,7 @@ import ClubCard from "./ClubCard";
 import './UIcss/Match.css'
 import {useNavigate} from "react-router-dom";
 
-const MatchCard = ({match}) => {
+const MatchCard = ({match, i}) => {
 
     const navigate = useNavigate();
     const homeTeam = match.homeTeamPlayersMatchStats[0]?.player?.team
@@ -16,7 +16,7 @@ const MatchCard = ({match}) => {
     }
 
     return (
-        <div id={match.id} className="match-container" onClick={() => navigateToMatchData()}>
+        <div id={'match'+i} className="match-container" onClick={() => navigateToMatchData()}>
             <div className="local-club-container">
                 <ClubCard clubLogo={homeTeam.imageURL} clubName={homeTeam.name} isLocal={true}/>
             </div>

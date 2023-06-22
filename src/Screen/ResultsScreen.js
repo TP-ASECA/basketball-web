@@ -33,10 +33,12 @@ const ResultsScreen = () => {
             <div className="results-container">
                 {
                     matchesCardsData.length ?
-                    matchesCardsData.map(m => (
+                    matchesCardsData.map((m,index)  => (
                         <MatchCard
                             match={m}
-                        />)
+                            i={index}
+                        />
+                        )
                     ):
                         <label className="team-points">
                             NO MATCHES

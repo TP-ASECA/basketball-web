@@ -157,9 +157,11 @@ const AddMatchScreen = () => {
                 <div className="team-container">
                     <div className="players-container">
                         <CellDescriptions />
-                        {homePlayersData?.map(player => {
+                        {homePlayersData?.map((player, index) => {
                             return(
                                 <PlayerCard
+                                    homeOrAway='Home'
+                                    i = {index}
                                     key={player.id}
                                     onMvpClick={() => setMvpId(player.id)}
                                     isMvp={mvpId === player.id}
@@ -175,9 +177,11 @@ const AddMatchScreen = () => {
                 <div className="team-container">
                     <div className="players-container">
                         <CellDescriptions isAwayTeam/>
-                        {awayPlayersData?.map(player => {
+                        {awayPlayersData?.map((player,index) => {
                             return(
                                 <PlayerCard
+                                    homeOrAway='Away'
+                                    i = {index}
                                     key={player.id}
                                     onMvpClick={() => setMvpId(player.id)}
                                     isAwayTeam

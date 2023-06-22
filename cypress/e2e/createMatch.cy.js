@@ -10,19 +10,83 @@ describe('template spec', () => {
     cy.get(".AwayTeamSelect").click().type('Heat')
     cy.contains("Heat").click()
 
-    cy.get("#20000441").click().type(2)
-    cy.get("#20000517").click().type(14)
-    cy.get("#20001406").click().type(21)
-    cy.get("#20001418").click().type(9)
-    cy.get("#20001858").click().type(15)
-    cy.get("#20001871").click().type(2)
+    const homePoints = [
+      { id: "#score-input1-Home", value: 2 },
+      { id: "#score-input2-Home", value: 14 },
+      { id: "#score-input3-Home", value: 21 },
+      { id: "#score-input4-Home", value: 9 },
+      { id: "#score-input5-Home", value: 15 },
+      { id: "#score-input6-Home", value: 2 }
+    ];
 
-    cy.get("#20000457").click().type(31)
-    cy.get("#20000515").click().type(3)
-    cy.get("#20000572").click().type(10)
-    cy.get("#20000689").click().type(10)
-    cy.get("#20000754").click().type(10)
-    cy.get("#20000780").click().type(10)
+    homePoints.forEach((score) => {
+      cy.get(score.id).click().type(score.value);
+    });
+
+    const awayPoints = [
+      { id: "#score-input1-Away", value: 31 },
+      { id: "#score-input2-Away", value: 3 },
+      { id: "#score-input3-Away", value: 10 },
+      { id: "#score-input4-Away", value: 10 },
+      { id: "#score-input5-Away", value: 10 },
+      { id: "#score-input6-Away", value: 10 }
+    ];
+
+    awayPoints.forEach((score) => {
+      cy.get(score.id).click().type(score.value);
+    });
+
+    const homeRebounds = [
+      { id: "#rebounds-input1-Home", value: 5 },
+      { id: "#rebounds-input2-Home", value: 9 },
+      { id: "#rebounds-input3-Home", value: 17 },
+      { id: "#rebounds-input4-Home", value: 4 },
+      { id: "#rebounds-input5-Home", value: 1 },
+      { id: "#rebounds-input6-Home", value: 2 }
+    ];
+
+    homeRebounds.forEach((rebounds) => {
+      cy.get(rebounds.id).click().type(rebounds.value);
+    });
+
+    const awayRebounds = [
+      { id: "#rebounds-input1-Away", value: 7 },
+      { id: "#rebounds-input2-Away", value: 3 },
+      { id: "#rebounds-input3-Away", value: 11 },
+      { id: "#rebounds-input4-Away", value: 5 },
+      { id: "#rebounds-input5-Away", value: 0 },
+      { id: "#rebounds-input6-Away", value: 18 }
+    ];
+
+    awayRebounds.forEach((rebounds) => {
+      cy.get(rebounds.id).click().type(rebounds.value);
+    });
+
+    const homeFaults = [
+      { id: "#faults-input1-Home", value: 2 },
+      { id: "#faults-input2-Home", value: 5 },
+      { id: "#faults-input3-Home", value: 9 },
+      { id: "#faults-input4-Home", value: 1 },
+      { id: "#faults-input5-Home", value: 8 },
+      { id: "#faults-input6-Home", value: 2 }
+    ];
+
+    homeFaults.forEach((faults) => {
+      cy.get(faults.id).click().type(faults.value);
+    });
+
+    const awayFaults = [
+      { id: "#faults-input1-Away", value: 3 },
+      { id: "#faults-input2-Away", value: 0 },
+      { id: "#faults-input3-Away", value: 8 },
+      { id: "#faults-input4-Away", value: 2 },
+      { id: "#faults-input5-Away", value: 14 },
+      { id: "#faults-input6-Away", value: 5 }
+    ];
+
+    awayFaults.forEach((faults) => {
+      cy.get(faults.id).click().type(faults.value);
+    });
 
     const expectedHomeScore = 63;
     const expectedAwayScore = 74;
@@ -30,7 +94,7 @@ describe('template spec', () => {
     cy.get("#homeResult").should("have.value",expectedHomeScore.toString())
     cy.get("#awayResult").should("have.value", expectedAwayScore.toString())
 
-    cy.get("#20000457-Star").click()
+    cy.get("#star1-Home").click()
 
     cy.get("#saveMatchButton").click()
 

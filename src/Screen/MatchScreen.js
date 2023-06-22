@@ -27,9 +27,11 @@ const MatchScreen = () => {
                 <div className="team-container">
                     <div className="players-container">
                         <CellDescriptions />
-                        {match.homeTeamPlayersMatchStats?.map(playerStats => {
+                        {match.homeTeamPlayersMatchStats?.map((playerStats, index) => {
                             return(
                                 <PlayerCard
+                                    homeOrAway='Home'
+                                    i={index}
                                     key={playerStats.playerId}
                                     isMvp={match.mvp.id === playerStats.playerId}
                                     id={playerStats.playerId}
@@ -46,9 +48,11 @@ const MatchScreen = () => {
                 <div className="team-container">
                     <div className="players-container">
                         <CellDescriptions isAwayTeam/>
-                        {match.awayTeamPlayersMatchStats?.map(playerStats => {
+                        {match.awayTeamPlayersMatchStats?.map((playerStats,index) => {
                             return(
                                 <PlayerCard
+                                    homeOrAway='Away'
+                                    i={index}
                                     key={playerStats.playerId}
                                     isMvp={match.mvp.id === playerStats.playerId}
                                     id={playerStats.playerId}
