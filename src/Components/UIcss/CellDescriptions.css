@@ -1,0 +1,11 @@
+.cell-title {
+    width: 54px;
+    font-size: 9px;
+    text-align: center;
+    margin: 0 2px;
+}
+
+.cell-descriptions-container {
+    display: flex;
+    justify-content: flex-end;
+}

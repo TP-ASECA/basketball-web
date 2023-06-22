@@ -4,11 +4,14 @@ import {useLocation, useNavigate} from "react-router-dom";
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import MatchCard from "../Components/MatchCard";
 import PlayerCard from "../Components/PlayerCard";
+import CellDescriptions from "../Components/CellDescriptions";
 
 const MatchScreen = () => {
 
     const navigate = useNavigate()
     const {state: match} = useLocation()
+
+    console.log(match)
 
     return (
         <div className="container">
@@ -23,6 +26,7 @@ const MatchScreen = () => {
             <div className="teams-container">
                 <div className="team-container">
                     <div className="players-container">
+                        <CellDescriptions />
                         {match.homeTeamPlayersMatchStats?.map(playerStats => {
                             return(
                                 <PlayerCard
@@ -41,6 +45,7 @@ const MatchScreen = () => {
                 </div>
                 <div className="team-container">
                     <div className="players-container">
+                        <CellDescriptions isAwayTeam/>
                         {match.awayTeamPlayersMatchStats?.map(playerStats => {
                             return(
                                 <PlayerCard
@@ -50,6 +55,8 @@ const MatchScreen = () => {
                                     name={playerStats.player.name}
                                     number={playerStats.player.number}
                                     fixedScore={playerStats.points}
+                                    fixedFaults={playerStats.faults}
+                                    fixedRebounds={playerStats.rebounds}
                                     isAwayTeam
                                 />
                             )

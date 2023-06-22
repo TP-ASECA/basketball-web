@@ -7,7 +7,7 @@ const PlayerCard = ({
     id,
     name,
     isMvp,
-    onScoreChange,
+    onStatChange,
     isAwayTeam,
     onMvpClick,
     fixedScore,
@@ -20,8 +20,8 @@ const PlayerCard = ({
     const [faults, setFaults] = useState()
 
     useEffect(() => {
-        onScoreChange && onScoreChange({playerId: id, points: score})
-    }, [score])
+        onStatChange && onStatChange({playerId: id, points: score, rebounds: rebounds, faults: faults})
+    }, [score, rebounds, faults])
 
     return (
         <div className="player-data-container" style={{flexDirection: isAwayTeam ? "row-reverse" : "row"}}>
@@ -31,9 +31,11 @@ const PlayerCard = ({
             <h3 className="player-name">
                 {name}
             </h3>
-            <input id={id} className="score-input" type={"number"} onChange={(e) => setScore(e.target.value)} value={fixedScore ? fixedScore : score} disabled={!!fixedScore}/>
-            <input id={id} className="score-input" type={"number"} onChange={(e) => setRebounds(e.target.value)}/>
-            <input id={id} className="score-input" type={"number"} onChange={(e) => setFaults(e.target.value)}/>
+            <div className={'inputs-container'} style={{flexDirection: isAwayTeam ? "row-reverse" : "row"}}>
+                <input id={id} className="score-input-secondary" type={"number"} onChange={(e) => setRebounds(e.target.value)} value={fixedRebounds ? fixedRebounds : rebounds} disabled={!!fixedRebounds}/>
+                <input id={id} className="score-input-secondary" type={"number"} onChange={(e) => setFaults(e.target.value)} value={fixedFaults ? fixedFaults : faults} disabled={!!fixedFaults}/>
+                <input id={id} className="score-input" type={"number"} onChange={(e) => setScore(e.target.value)} value={fixedScore ? fixedScore : score} disabled={!!fixedScore}/>
+            </div>
         </div>
     );
 };

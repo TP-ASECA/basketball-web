@@ -9,6 +9,7 @@ import {get, post} from "../utilis/https";
 import {DatePicker, LocalizationProvider} from "@mui/x-date-pickers";
 import {AdapterDayjs} from "@mui/x-date-pickers/AdapterDayjs";
 import {toast, ToastContainer} from "react-toastify";
+import CellDescriptions from "../Components/CellDescriptions";
 
 const AddMatchScreen = () => {
 
@@ -20,23 +21,23 @@ const AddMatchScreen = () => {
     const [mvpId, setMvpId] = useState()
     const [date, setDate] = useState()
 
-    const [homeTeamScores, setHomeTeamScores] = useState([])
-    const [awayTeamScores, setAwayTeamScores] = useState([])
+    const [homeTeamStats, setHomeTeamStats] = useState([])
+    const [awayTeamStats, setAwayTeamStats] = useState([])
 
     useEffect(() => {
-        setHomeTeamScores([])
+        setHomeTeamStats([])
     }, [homeClubData?.id])
 
     useEffect(() => {
-        setAwayTeamScores([])
+        setAwayTeamStats([])
     }, [awayClubData?.id])
 
-    const updateTeamScores = (newScore, teamScores) => {
-        return teamScores?.filter(it => it.playerId !== newScore.playerId).concat(newScore);
+    const updateTeamStats = (newStats, teamStats) => {
+        return teamStats?.filter(it => it.playerId !== newStats.playerId).concat(newStats);
     }
 
-    const calculateTeamScore = (teamScores) => {
-        return teamScores?.filter(it => !!it.points).map(it => it.points).reduce((prev, next) => Number(prev) + Number(next), 0) || 0
+    const calculateTeamScore = (teamStats) => {
+        return teamStats?.filter(it => !!it.points).map(it => it.points).reduce((prev, next) => Number(prev) + Number(next), 0) || 0
     }
 
     const getClubs = async () => {
@@ -53,8 +54,8 @@ const AddMatchScreen = () => {
                 gameDate: date,
                 homeTeamId: homeClubData.id,
                 awayTeamId: awayClubData.id,
-                homeTeamPlayersMatchStats: homeTeamScores.filter(it => !!it.points),
-                awayTeamPlayersMatchStats: awayTeamScores.filter(it => !!it.points),
+                homeTeamPlayersMatchStats: homeTeamStats.filter(it => !!it.points || it.faults || it.rebounds),
+                awayTeamPlayersMatchStats: awayTeamStats.filter(it => !!it.points || it.faults || it.rebounds),
                 mvpId: mvpId,
             }
         ).then(() => window.location.href = "/")
@@ -136,8 +137,8 @@ const AddMatchScreen = () => {
                     />
                 </div>
                 <div className="input-results-container">
-                    <input readOnly className="result-input" id="homeResult" value={calculateTeamScore(homeTeamScores)}/>
-                    <input readOnly className='result-input' id="awayResult" value={calculateTeamScore(awayTeamScores)}/>
+                    <input readOnly className="result-input" id="homeResult" value={calculateTeamScore(homeTeamStats)}/>
+                    <input readOnly className='result-input' id="awayResult" value={calculateTeamScore(awayTeamStats)}/>
                 </div>
                 <div className="autocomplete-container">
                     <Autocomplete
@@ -155,6 +156,7 @@ const AddMatchScreen = () => {
             <div className="teams-container">
                 <div className="team-container">
                     <div className="players-container">
+                        <CellDescriptions />
                         {homePlayersData?.map(player => {
                             return(
                                 <PlayerCard
@@ -164,7 +166,7 @@ const AddMatchScreen = () => {
                                     id={player.id}
                                     name={player.name}
                                     number={player.number}
-                                    onScoreChange={(newScore) => setHomeTeamScores(updateTeamScores(newScore, homeTeamScores))}
+                                    onStatChange={(newStats) => setHomeTeamStats(updateTeamStats(newStats, homeTeamStats))}
                                 />
                         )
                         })}
@@ -172,6 +174,7 @@ const AddMatchScreen = () => {
                 </div>
                 <div className="team-container">
                     <div className="players-container">
+                        <CellDescriptions isAwayTeam/>
                         {awayPlayersData?.map(player => {
                             return(
                                 <PlayerCard
@@ -182,7 +185,7 @@ const AddMatchScreen = () => {
                                     id={player.id}
                                     name={player.name}
                                     number={player.number}
-                                    onScoreChange={(newScore) => setAwayTeamScores(updateTeamScores(newScore, awayTeamScores))}
+                                    onStatChange={(newScore) => setAwayTeamStats(updateTeamStats(newScore, awayTeamStats))}
                                 />
                             )
                         })}
